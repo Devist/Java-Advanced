@@ -33,11 +33,6 @@ class MySong extends Song{
 
 
 
-
-
-
-
-
 public class C4_MP3Player {	//top-level class
 	
 	//play 메소드의 타입은 Song, Video로 다르지만, 메소드는 똑같다 = 메소드 오버로딩
