@@ -3,6 +3,8 @@ package com.swing;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -10,7 +12,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class ChattingTest {
+public class ChattingTest implements ActionListener{
 
 	JFrame f;
 	JLabel text;	//화면에서의 문자열
@@ -43,9 +45,26 @@ public class ChattingTest {
 		
 		ta.setEditable(false);
 		tf.requestFocus();
+		tf.addActionListener(this);
 	}
 	public static void main(String[] args) {
 		new ChattingTest();
+	}
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// 감시자가 할 작업 내용
+		// 1. tf에 입력한 내용 알아내기
+		String message = tf.getText();
+		
+		// 2. 알아낸 내용을 ta에 붙이기
+		ta.append(message+ "\n");
+		
+		// 3. tf의 내용 지우기
+		tf.setText(null);
+		
+		
 	}
 
 }
